@@ -1,21 +1,44 @@
 import React from "react";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Monitoring from "./Monitoring.js";
 import Update from "./Update.js";
 
 export default function App() {
+  const navigate = useNavigate();
+
   return (
     <>
       <div>
-        <h1>Hello StackBlitz!</h1>
-        <p>Start editing to see some magic happen :)</p>
+        <h1>Cobain Socket.IO</h1>
+        <div
+          style={{
+            margin: "10px 25px",
+            width: "300px",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <button
+            onClick={() => {
+              navigate("/update");
+            }}
+          >
+            Update Lokasi
+          </button>
+          <button
+            onClick={() => {
+              navigate("/monitoring");
+            }}
+          >
+            Monitoring
+          </button>
+        </div>
       </div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/monitoring" element={<Monitoring />} />
-          <Route path="/update" element={<Update />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/monitoring" element={<Monitoring />} />
+        <Route path="/update" element={<Update />} />
+      </Routes>
     </>
   );
 }
