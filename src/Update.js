@@ -11,7 +11,7 @@ const Update = () => {
 
   useEffect(() => {
     // server
-    const newSocket = io("http://128.199.237.114:5000/live-tracking/v1", {
+    const newSocket = io("https://sigesit.asidikrdn.my.id/live-tracking/v1", {
       path: "/live-tracking/v1",
     });
 
